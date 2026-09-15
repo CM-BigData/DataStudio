@@ -1,0 +1,5 @@
+runtime:
+  executor: local
+  workers: 1
+  device: cpu
+  retry_limit: 1

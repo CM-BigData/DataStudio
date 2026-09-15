@@ -1,0 +1,44 @@
+---
+workflow:
+  id: text_synthesis_v1
+  name: 文本数据合成流程
+  mode: pipeline
+  batch_size: 8
+  concurrency: 1
+  checkpoint: true
+  retry_limit: 1
+input:
+  type: seed_yaml
+  path: example_data/text/text_topics.yaml
+output:
+  type: jsonl
+  path: runs/text_synthesis
+  report_path: runs/text_synthesis/report.md
+steps:
+- id: text_synthesis
+  operator: text_synthesis
+  params:
+    stages:
+      text_llm_synthesis:
+        model_ref: text_generation
+        prompt_template: instruction_generation
+        response_format: json
+        model_config:
+          provider: openai
+          model: gpt-4.1-mini
+          api_base_env: LLM_API_BASE
+          api_key_env: LLM_API_KEY
+          timeout_seconds: 60
+          max_retries: 2
+          temperature: 0.7
+          max_tokens: 1200
+      text_format_validate:
+        min_length: 50
+      diversity_score: {}
+      safety_filter:
+        banned_words:
+        - password
+        - secret
+      quality_gate:
+        pass_score: 0.7
+        retry_limit: 1

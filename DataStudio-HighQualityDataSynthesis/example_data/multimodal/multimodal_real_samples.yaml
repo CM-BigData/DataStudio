@@ -1,0 +1,19 @@
+items:
+- id: mm_dinosaur_001
+  task_type: text
+  prompt: Describe the dinosaur image briefly.
+  payload:
+    text: Describe the main subject in the image in one short sentence.
+    image_path: example_data/multimodal/images/dinosaur.jpg
+- id: mm_hopper_001
+  task_type: text
+  prompt: Identify the main object in the image.
+  payload:
+    text: What is the most salient object shown in this picture?
+    image_path: example_data/multimodal/images/hopper.jpg
+- id: mm_dog_001
+  task_type: text
+  prompt: Describe the dog image.
+  payload:
+    text: Provide a short factual description of the animal in the image.
+    image_path: example_data/multimodal/images/dog.jpg

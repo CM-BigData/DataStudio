@@ -1,0 +1,22 @@
+items:
+- id: topic_gutenberg_001
+  task_type: text
+  prompt: Generate a concise reading note about a public-domain fiction excerpt.
+  payload:
+    topic: public-domain fiction excerpt quality
+    audience: data workflow operator
+    style: concise
+- id: topic_squad_001
+  task_type: text
+  prompt: Generate a short note about reading-comprehension QA data.
+  payload:
+    topic: reading comprehension QA seeds
+    audience: dataset curator
+    style: checklist
+- id: topic_multimodal_001
+  task_type: text
+  prompt: Generate a practical note about multimodal sample traceability.
+  payload:
+    topic: multimodal sample traceability
+    audience: data platform engineer
+    style: practical

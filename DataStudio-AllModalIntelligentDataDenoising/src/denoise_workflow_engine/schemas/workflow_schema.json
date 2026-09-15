@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Denoise Workflow Config",
+  "type": "object",
+  "required": ["workflow", "input", "output", "steps"],
+  "additionalProperties": true,
+  "properties": {
+    "workflow": {
+      "type": "object",
+      "required": ["id", "name", "mode"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "mode": {"type": "string", "enum": ["pipeline", "dag"]},
+        "batch_size": {"type": "integer", "minimum": 1},
+        "concurrency": {"type": "integer", "minimum": 1},
+        "checkpoint": {"type": "boolean"}
+      }
+    },
+    "input": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"type": "string", "enum": ["auto", "jsonl", "json", "csv", "directory", "file", "stdin", "raw_text"]},
+        "path": {"type": "string"},
+        "text": {"type": "string"},
+        "id_field": {"type": "string"},
+        "text_field": {"type": "string"},
+        "image_field": {"type": "string"},
+        "video_field": {"type": "string"},
+        "audio_field": {"type": "string"},
+        "modality_field": {"type": "string"}
+      }
+    },
+    "output": {
+      "type": "object",
+      "required": ["run_dir"],
+      "properties": {
+        "run_dir": {"type": "string"},
+        "clean_path": {"type": "string"},
+        "dropped_path": {"type": "string"},
+        "review_path": {"type": "string"},
+        "report_path": {"type": "string"}
+      }
+    },
+    "custom_operators": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "operator"],
+        "properties": {
+          "id": {"type": "string"},
+          "operator": {"type": "string"},
+          "params": {"type": "object"},
+          "depends_on": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

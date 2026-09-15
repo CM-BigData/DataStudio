@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Denoise DataItem",
+  "type": "object",
+  "required": ["id", "payload"],
+  "additionalProperties": true,
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "modality": {
+      "type": "string",
+      "enum": ["unknown", "text", "image", "image_text_pair", "video"]
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "text": {"type": "string"},
+        "image_path": {"type": "string"},
+        "video_path": {"type": "string"},
+        "audio_path": {"type": "string"}
+      },
+      "not": {
+        "anyOf": [
+          {"required": ["reference_image_path"]},
+          {"required": ["image_keywords"]},
+          {"required": ["visual_keywords"]},
+          {"required": ["precomputed_ocr_text"]},
+          {"required": ["precomputed_asr_text"]},
+          {"required": ["precomputed_subtitle_text"]},
+          {"required": ["expected_keywords"]}
+        ]
+      }
+    },
+    "meta": {"type": "object"},
+    "intermediate": {"type": "object"},
+    "metrics": {"type": "object"},
+    "issues": {"type": "array", "items": {"type": "string"}}
+  },
+  "not": {
+    "anyOf": [
+      {"required": ["expected_action"]},
+      {"required": ["expected_clean"]},
+      {"required": ["expected_file"]},
+      {"required": ["manifest"]},
+      {"required": ["ground_truth"]},
+      {"required": ["reference_path"]},
+      {"required": ["source_reference"]},
+      {"required": ["target_action"]}
+    ]
+  }
+}

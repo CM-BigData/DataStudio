@@ -1,0 +1,53 @@
+---
+workflow:
+  id: image_blank_eval_v1
+  name: 图像空白检查最小工作流
+  mode: pipeline
+  task_type: image
+  batch_size: 16
+  concurrency: 1
+  checkpoint: true
+runtime:
+  executor: thread
+  workers: 1
+  batch_size: 16
+  retry_times: 0
+input:
+  type: image_folder
+  path: "./example_data/image_blank_eval_sample"
+  annotation_path: "./example_data/image_blank_eval_sample/annotations.json"
+output:
+  result_path: "./real_outputs/image_blank_eval_result.jsonl"
+  summary_path: "./real_outputs/image_blank_eval_summary.json"
+  report_path: "./real_reports/image_blank_eval_report.md"
+rules:
+  allowed_formats:
+  - jpg
+  - jpeg
+  - png
+  pure_white_mean_threshold: 250
+  pure_black_mean_threshold: 5
+  pure_color_std_threshold: 0.5
+  near_solid_std_threshold: 6
+  near_solid_range_threshold: 18
+  near_solid_dominant_ratio_threshold: 0.12
+  blank_content_std_threshold: 12
+  blank_content_range_threshold: 40
+  blank_content_mean_threshold: 235
+  blank_content_dark_mean_threshold: 20
+  blank_content_dominant_ratio_threshold: 0.55
+score_weights:
+  规范性: 0.15
+  完整性: 0.15
+  准确性: 0.2
+  一致性: 0.15
+  安全性: 0.15
+  干净性: 0.1
+  多样性: 0.05
+  模型适配性: 0.05
+steps:
+- id: image_dataset_eval
+  operator: image_dataset_eval
+  params:
+    enabled_checks:
+    - blank

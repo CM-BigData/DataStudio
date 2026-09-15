@@ -1,0 +1,28 @@
+items:
+  - id: multimodal_sample_001
+    task_type: text
+    prompt: Describe the dinosaur image briefly.
+    payload:
+      text: "Describe the main subject in the image in one short sentence."
+      image_path: tests/fixtures/multimodal_images/example.jpg
+      sample_type: image_caption
+      source_name: MDN Learning Area
+      source_url: https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg
+  - id: multimodal_sample_002
+    task_type: text
+    prompt: Identify the main visual object.
+    payload:
+      text: "What is the most salient object shown in this picture?"
+      image_path: tests/fixtures/multimodal_images/flower.jpg
+      sample_type: image_caption
+      source_name: Pillow Test Image
+      source_url: https://github.com/python-pillow/Pillow/blob/main/Tests/images/hopper.jpg
+  - id: multimodal_sample_003
+    task_type: text
+    prompt: Describe the dog image.
+    payload:
+      text: "Provide a short factual description of the animal in the image."
+      image_path: tests/fixtures/multimodal_images/golden_retriever.jpg
+      sample_type: image_caption
+      source_name: PyTorch Hub Example
+      source_url: https://github.com/pytorch/hub/blob/master/images/dog.jpg

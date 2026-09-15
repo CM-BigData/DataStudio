@@ -1,0 +1,50 @@
+[
+  {
+    "id": "mac_router_label",
+    "text": "Router label: WAN MAC 00:1A:2B:3C:4D:5E, please mask before sharing screenshots.",
+    "expected_detected": true,
+    "source_type": "realistic_device_support_text",
+    "source_url": "https://en.wikipedia.org/wiki/MAC_address",
+    "selection_reason": "Use a canonical colon-separated MAC address in realistic support text."
+  },
+  {
+    "id": "mac_switch_inventory",
+    "text": "Switch inventory record uses MAC 00-1A-2B-3C-4D-5E for the uplink port sticker.",
+    "expected_detected": true,
+    "source_type": "realistic_asset_inventory_text",
+    "source_url": "https://en.wikipedia.org/wiki/MAC_address",
+    "selection_reason": "Cover the hyphen-separated MAC format in device inventory language."
+  },
+  {
+    "id": "normal_device_description",
+    "text": "The device supports dual-band Wi-Fi 6, two LAN ports, and Bluetooth pairing for setup.",
+    "expected_detected": false,
+    "source_type": "normal_device_description",
+    "source_url": "https://www.bluetooth.com/learn-about-bluetooth/",
+    "selection_reason": "Realistic hardware description without any sensitive identifier."
+  },
+  {
+    "id": "hex_noise_string",
+    "text": "Debug hash 001A2B3C4D5E was copied from a firmware checksum field and is not a MAC address.",
+    "expected_detected": false,
+    "source_type": "hexadecimal_noise",
+    "source_url": "https://en.wikipedia.org/wiki/Hexadecimal",
+    "selection_reason": "Avoid false positives on continuous hexadecimal strings without separators."
+  },
+  {
+    "id": "mixed_separator_noise",
+    "text": "Malformed value 00:1A-2B:3C-4D:5E should stay unchanged because the separators are inconsistent.",
+    "expected_detected": false,
+    "source_type": "mixed_separator_noise",
+    "source_url": "https://en.wikipedia.org/wiki/MAC_address",
+    "selection_reason": "Reject mixed separator patterns that look similar to MAC addresses."
+  },
+  {
+    "id": "ipv6_like_noise",
+    "text": "IPv6 sample fe80::1a2b:3c4d:5e6f:7080 must not be treated as a MAC address.",
+    "expected_detected": false,
+    "source_type": "ipv6_like_noise",
+    "source_url": "https://en.wikipedia.org/wiki/IPv6_address",
+    "selection_reason": "Reject colon-delimited hexadecimal strings that are actually IPv6-like text."
+  }
+]

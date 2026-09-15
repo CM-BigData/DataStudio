@@ -1,0 +1,27 @@
+[
+  {
+    "id": "real_photo_cat",
+    "image_path": "real_photo_cat.jpg",
+    "label": "normal_photo"
+  },
+  {
+    "id": "scan_blank_page",
+    "image_path": "scan_blank_page.jpg",
+    "label": "blank_scan"
+  },
+  {
+    "id": "scan_blank_page_crop",
+    "image_path": "scan_blank_page_crop.jpg",
+    "label": "blank_scan_crop"
+  },
+  {
+    "id": "white_wall_background_crop",
+    "image_path": "white_wall_background_crop.png",
+    "label": "near_solid"
+  },
+  {
+    "id": "snow_field_near_blank",
+    "image_path": "snow_field_near_blank.jpg",
+    "label": "normal_bright_scene"
+  }
+]

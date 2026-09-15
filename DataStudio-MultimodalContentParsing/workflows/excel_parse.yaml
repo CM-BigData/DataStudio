@@ -1,0 +1,20 @@
+workflow:
+  id: excel_parse_v1
+  name: Excel 内容解析流程
+  mode: pipeline
+  batch_size: 8
+  concurrency: 1
+  checkpoint: true
+input:
+  type: file_dir
+  path: example_data/excel
+output:
+  type: jsonl
+  path: runs/excel_parse
+  report_path: runs/excel_parse/report.md
+steps:
+- id: excel_parse
+  operator: excel_parse
+  params:
+    chunking:
+      target_len: 800

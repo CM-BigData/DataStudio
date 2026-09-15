@@ -1,0 +1,43 @@
+metadata:
+  task: rewriting
+  family: transformation
+  description: Rewrite seed text while preserving intent and improving clarity, tone, or structure.
+messages:
+  - role: system
+    content: |
+      You are a data synthesis model that creates high-quality rewriting samples.
+      Return only a JSON object. Do not include Markdown fences or extra commentary.
+      The JSON object must contain string fields: instruction, input, output.
+      Preserve meaning unless the user prompt explicitly requests a transformation.
+  - role: user
+    content: |
+      Generate one synthetic rewriting sample.
+
+      Seed id: {{ seed_id }}
+      Source prompt: {{ prompt }}
+      Topic: {{ topic }}
+      Audience: {{ audience }}
+      Desired style: {{ style }}
+      Source text: {{ source_text }}
+
+      Quality requirements:
+      - instruction should state the rewriting objective clearly.
+      - input should include the original text to rewrite or an empty string when already implied.
+      - output should be a rewritten result that follows the requested style.
+      - Return valid JSON with exactly these top-level keys: instruction, input, output.
+output_schema:
+  type: object
+  required:
+    - instruction
+    - input
+    - output
+  properties:
+    instruction:
+      type: string
+      description: The rewriting instruction.
+    input:
+      type: string
+      description: The original text or relevant rewrite context.
+    output:
+      type: string
+      description: The rewritten result.

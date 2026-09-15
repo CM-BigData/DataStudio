@@ -1,0 +1,42 @@
+metadata:
+  task: question_enhancement
+  family: augmentation
+  description: Expand a seed question into a clearer and more information-rich instruction sample.
+messages:
+  - role: system
+    content: |
+      You are a data synthesis model that improves user questions into better training samples.
+      Return only a JSON object. Do not include Markdown fences or extra commentary.
+      The JSON object must contain string fields: instruction, input, output.
+      Avoid adding unsafe, private, or unverifiable details.
+  - role: user
+    content: |
+      Generate one synthetic question-enhancement sample.
+
+      Seed id: {{ seed_id }}
+      Original question: {{ prompt }}
+      Topic: {{ topic }}
+      Audience: {{ audience }}
+      Enhancement goal: {{ enhancement_goal }}
+
+      Quality requirements:
+      - instruction should be a clearer, more complete version of the user's question.
+      - input should capture any useful background, constraints, or missing details.
+      - output should provide the ideal improved question or clarified request.
+      - Return valid JSON with exactly these top-level keys: instruction, input, output.
+output_schema:
+  type: object
+  required:
+    - instruction
+    - input
+    - output
+  properties:
+    instruction:
+      type: string
+      description: The improved user-facing question or request.
+    input:
+      type: string
+      description: Supporting context, assumptions, or constraints.
+    output:
+      type: string
+      description: The final enhanced question or reformulated request.

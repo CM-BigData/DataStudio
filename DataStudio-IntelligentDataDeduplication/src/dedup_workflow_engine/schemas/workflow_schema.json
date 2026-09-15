@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dedup Workflow Config",
+  "type": "object",
+  "required": ["workflow", "input", "output", "steps"],
+  "properties": {
+    "workflow": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "modality": { "type": "string" },
+        "mode": { "type": "string", "enum": ["pipeline", "dag"] },
+        "checkpoint": { "type": "boolean" },
+        "resume": { "type": "boolean" },
+        "batch_size": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "properties": {
+        "executor": { "type": "string" },
+        "workers": { "type": "integer", "minimum": 1 },
+        "batch_size": { "type": "integer", "minimum": 1 },
+        "checkpoint": { "type": "boolean" },
+        "resume": { "type": "boolean" },
+        "allow_parallel_steps": { "type": "boolean" },
+        "device": { "type": "string" }
+      }
+    },
+    "input": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["auto", "jsonl", "json", "csv", "directory", "file", "stdin", "raw_text"]
+        },
+        "path": { "type": "string" },
+        "text": { "type": "string" },
+        "modality": { "type": "string" },
+        "id_field": { "type": "string" },
+        "modality_field": { "type": "string" },
+        "text_field": { "type": "string" },
+        "image_path_field": { "type": "string" },
+        "audio_path_field": { "type": "string" }
+      }
+    },
+    "output": { "type": "object" },
+    "custom_operators": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "operator"],
+        "properties": {
+          "id": { "type": "string" },
+          "operator": { "type": "string" },
+          "depends_on": {
+            "oneOf": [
+              { "type": "string" },
+              { "type": "array", "items": { "type": "string" } }
+            ]
+          },
+          "parallel_safe": { "type": "boolean" },
+          "params": { "type": "object" }
+        }
+      }
+    }
+  }
+}

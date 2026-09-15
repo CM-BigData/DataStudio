@@ -1,0 +1,90 @@
+[
+  {
+    "id": "img_001",
+    "image_path": "img_good.jpg",
+    "label": "normal",
+    "caption": "A clear Oxford-IIIT Pet cat image",
+    "bbox": [
+      20,
+      20,
+      180,
+      180
+    ]
+  },
+  {
+    "id": "img_002",
+    "image_path": "img_good_dup.jpg",
+    "label": "duplicate",
+    "caption": "Duplicate Oxford-IIIT Pet cat image",
+    "bbox": [
+      20,
+      20,
+      180,
+      180
+    ]
+  },
+  {
+    "id": "img_003",
+    "image_path": "img_small.png",
+    "label": "small",
+    "caption": "Low resolution image"
+  },
+  {
+    "id": "img_004",
+    "image_path": "img_blur.jpg",
+    "label": "blur",
+    "caption": "Blurred image"
+  },
+  {
+    "id": "img_005",
+    "image_path": "img_wide.jpg",
+    "label": "wide",
+    "caption": "Unusual aspect ratio image"
+  },
+  {
+    "id": "img_006",
+    "image_path": "img_unsupported.bmp",
+    "label": "bmp",
+    "caption": "BMP format sample"
+  },
+  {
+    "id": "img_007",
+    "image_path": "corrupted.jpg",
+    "label": "broken",
+    "caption": "Corrupted image"
+  },
+  {
+    "id": "img_008",
+    "image_path": "img_blank.jpg",
+    "label": "blank",
+    "caption": "Blank image"
+  },
+  {
+    "id": "img_009",
+    "image_path": "img_dinosaur.jpg",
+    "label": "normal",
+    "caption": "Oxford-IIIT Pet cat crop"
+  },
+  {
+    "id": "img_010",
+    "image_path": "img_docx.png",
+    "label": "normal",
+    "caption": "Oxford-IIIT Pet cat PNG sample",
+    "bbox": [
+      -10,
+      10,
+      999,
+      999
+    ]
+  },
+  {
+    "id": "img_011",
+    "caption": "Annotation row without an image path"
+  },
+  {
+    "id": "img_012",
+    "image_path": "missing_file.jpg",
+    "label": "missing_file",
+    "caption": "Annotation row pointing to a missing image file"
+  }
+]

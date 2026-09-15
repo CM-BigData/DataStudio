@@ -1,0 +1,28 @@
+workflow:
+  id: audio_dedup_demo
+  name: Audio deduplication demo
+  modality: audio
+  mode: pipeline
+  checkpoint: true
+input:
+  type: jsonl
+  path: ./example_data/audio/input.jsonl
+output:
+  run_dir: ./runs/audio_demo
+  kept_path: kept.jsonl
+  removed_path: removed.jsonl
+  review_path: review.jsonl
+  duplicate_groups_path: duplicate_groups.jsonl
+  metrics_path: metrics.json
+  operator_log_path: operator_logs.jsonl
+  report_path: report.md
+steps:
+- id: audio_dedup
+  operator: audio_dedup
+  params:
+    profile: basic
+    methods:
+      file_hash: true
+      pcm_hash: true
+    thresholds:
+      cluster_min_score: 0.99

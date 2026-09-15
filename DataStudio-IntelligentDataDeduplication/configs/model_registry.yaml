@@ -1,0 +1,37 @@
+text_embedding:
+  provider: openai_compatible
+  api_base_env: TEXT_EMBEDDING_API_BASE
+  endpoint_path: /embeddings
+  api_key_env: TEXT_EMBEDDING_API_KEY
+  model_env: TEXT_EMBEDDING_MODEL
+
+text_rerank:
+  provider: openai_compatible
+  api_base_env: TEXT_RERANK_API_BASE
+  endpoint_path: /chat/completions
+  api_key_env: TEXT_RERANK_API_KEY
+  model_env: TEXT_RERANK_MODEL
+
+image_embedding:
+  provider: custom_json
+  api_base_env: IMAGE_EMBEDDING_API_BASE
+  endpoint_path: /embeddings
+  api_key_env: IMAGE_EMBEDDING_API_KEY
+  model_env: IMAGE_EMBEDDING_MODEL
+  input_field: image_base64
+
+audio_embedding:
+  provider: custom_json
+  api_base_env: AUDIO_EMBEDDING_API_BASE
+  endpoint_path: /embeddings
+  api_key_env: AUDIO_EMBEDDING_API_KEY
+  model_env: AUDIO_EMBEDDING_MODEL
+  input_field: audio_base64
+
+asr:
+  provider: custom_json
+  api_base_env: ASR_API_BASE
+  endpoint_path: ""
+  api_key_env: ASR_API_KEY
+  model_env: ASR_MODEL
+  input_field: audio_base64

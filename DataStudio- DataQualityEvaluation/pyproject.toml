@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=83.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quality-eval-workflow-engine"
+version = "0.1.0"
+description = "Lightweight workflow-based data quality evaluation tool for text and image datasets."
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "PyYAML>=6.0",
+  "Pillow>=12.3.0",
+  "regex>=2026.5.9"
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+quality-eval = "quality_eval.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["quality_eval*"]
+
+[tool.setuptools.package-data]
+quality_eval = ["schemas/*.json"]

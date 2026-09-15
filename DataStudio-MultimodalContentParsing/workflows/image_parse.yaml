@@ -1,0 +1,27 @@
+workflow:
+  id: image_parse_v1
+  name: 图片内容解析流程
+  mode: pipeline
+  batch_size: 8
+  concurrency: 1
+  checkpoint: true
+input:
+  type: file_dir
+  path: example_data/image
+output:
+  type: jsonl
+  path: runs/image_parse
+  report_path: runs/image_parse/report.md
+steps:
+- id: image_parse
+  operator: image_parse
+  params:
+    image_quality:
+      min_width: 64
+      min_height: 64
+    document_parse:
+      provider: openai_compatible
+      model: gpt-5.5
+      api_key_env: OPENAI_API_KEY
+      api_base_env: OPENAI_BASE_URL
+      max_pages: 1

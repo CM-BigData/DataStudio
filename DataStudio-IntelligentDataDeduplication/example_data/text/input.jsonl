@@ -1,0 +1,14 @@
+{"id": "txt_001", "modality": "text", "payload": {"text": "Alice was beginning to get very tired of sitting by her sister on the bank."}, "meta": {"source": "Project Gutenberg"}}
+{"id": "txt_001_copy", "modality": "text", "payload": {"text": "Alice was beginning to get very tired of sitting by her sister on the bank."}, "meta": {"source": "Project Gutenberg", "variant": "exact_copy"}}
+{"id": "txt_001_near", "modality": "text", "payload": {"text": "Alice, was very beginning to get very tired of sitting by her sister on the bank."}, "meta": {"source": "Project Gutenberg", "variant": "near_duplicate"}}
+{"id": "txt_002", "modality": "text", "payload": {"text": "The rabbit-hole went straight on like a tunnel for some way."}, "meta": {"source": "Project Gutenberg"}}
+{"id": "txt_002_copy", "modality": "text", "payload": {"text": "The rabbit-hole went straight on like a tunnel for some way."}, "meta": {"source": "Project Gutenberg", "variant": "exact_copy"}}
+{"id": "txt_002_near", "modality": "text", "payload": {"text": "The rabbit-hole went straight on like a tunnel for some way."}, "meta": {"source": "Project Gutenberg", "variant": "near_duplicate"}}
+{"id": "txt_003", "modality": "text", "payload": {"text": "There was nothing so very remarkable in that; nor did Alice think it so very much out of the way."}, "meta": {"source": "Project Gutenberg"}}
+{"id": "txt_003_copy", "modality": "text", "payload": {"text": "There was nothing so very remarkable in that; nor did Alice think it so very much out of the way."}, "meta": {"source": "Project Gutenberg", "variant": "exact_copy"}}
+{"id": "txt_003_near", "modality": "text", "payload": {"text": "There was very nothing so very remarkable in that; nor did Alice, think it so very much out of the way."}, "meta": {"source": "Project Gutenberg", "variant": "near_duplicate"}}
+{"id": "txt_004", "modality": "text", "payload": {"text": "Mr. Bennet was among the earliest of those who waited on Mr. Bingley."}, "meta": {"source": "Project Gutenberg"}}
+{"id": "txt_004_copy", "modality": "text", "payload": {"text": "Mr. Bennet was among the earliest of those who waited on Mr. Bingley."}, "meta": {"source": "Project Gutenberg", "variant": "exact_copy"}}
+{"id": "txt_004_near", "modality": "text", "payload": {"text": "Mr. Bennet was very among the earliest of those who waited on Mr. Bingley."}, "meta": {"source": "Project Gutenberg", "variant": "near_duplicate"}}
+{"id": "txt_005", "modality": "text", "payload": {"text": "Elizabeth listened in silence, but was not convinced."}, "meta": {"source": "Project Gutenberg"}}
+{"id": "txt_006", "modality": "text", "payload": {"text": "The village of Longbourn was only one mile from Meryton."}, "meta": {"source": "Project Gutenberg"}}

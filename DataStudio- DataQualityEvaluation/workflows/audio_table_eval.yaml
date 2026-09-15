@@ -1,0 +1,40 @@
+---
+workflow:
+  id: audio_table_eval_v1
+  name: 音频语料表格口径质量评测
+  mode: pipeline
+  task_type: audio
+  batch_size: 64
+  concurrency: 1
+  checkpoint: true
+runtime:
+  executor: thread
+  workers: 1
+  batch_size: 64
+  retry_times: 0
+input:
+  type: directory
+  path: "./example_data/audio_dataset"
+output:
+  result_path: "./outputs/audio_table_eval_result.jsonl"
+  summary_path: "./outputs/audio_table_eval_summary.json"
+  report_path: "./outputs/audio_table_eval_report.md"
+rules:
+  allowed_audio_formats:
+    - wav
+  expected_sample_rate: 24000
+  expected_bit_depth: 16
+  min_audio_rms: 100
+  min_audio_dynamic_range: 500
+  max_audio_clip_ratio: 0.01
+steps:
+  - id: audio_dataset_eval
+    operator: audio_dataset_eval
+    params:
+      enabled_checks:
+        - format
+        - sample_rate
+        - bit_depth
+        - volume_range
+        - cleanliness
+        - duplicate

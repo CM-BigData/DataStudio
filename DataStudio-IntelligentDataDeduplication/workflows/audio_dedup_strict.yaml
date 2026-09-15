@@ -1,0 +1,39 @@
+workflow:
+  id: audio_dedup_strict_v1
+  name: Strict audio deduplication workflow
+  modality: audio
+  mode: pipeline
+  checkpoint: true
+input:
+  type: jsonl
+  path: ./example_data/audio/input.jsonl
+output:
+  run_dir: ./runs/audio_strict
+  kept_path: kept.jsonl
+  removed_path: removed.jsonl
+  review_path: review.jsonl
+  duplicate_groups_path: duplicate_groups.jsonl
+  metrics_path: metrics.json
+  operator_log_path: operator_logs.jsonl
+  report_path: report.md
+steps:
+- id: audio_dedup
+  operator: audio_dedup
+  params:
+    profile: strict
+    methods:
+      file_hash: true
+      pcm_hash: true
+      fingerprint:
+        bins: 64
+        similarity_threshold: 0.92
+      mfcc:
+        bins: 64
+        similarity_threshold: 0.995
+      embedding: false
+      asr: false
+    thresholds:
+      cluster_min_score: 0.85
+    model_ref:
+      embedding: AUDIO_EMBEDDING_*
+      asr: ASR_*

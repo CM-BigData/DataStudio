@@ -1,0 +1,39 @@
+---
+workflow:
+  id: text_dataset_csv_eval_v1
+  name: CSV 文本数据集质量评测
+  mode: pipeline
+  task_type: text
+  batch_size: 64
+  concurrency: 1
+  checkpoint: true
+runtime:
+  executor: thread
+  workers: 1
+  batch_size: 64
+  retry_times: 0
+input:
+  type: csv
+  path: "./example_data/text_dataset.csv"
+output:
+  result_path: "./outputs/text_csv_eval_result.jsonl"
+  summary_path: "./outputs/text_csv_eval_summary.json"
+  report_path: "./outputs/text_csv_eval_report.md"
+rules:
+  min_text_length: 10
+  max_text_length: 80
+  abnormal_char_ratio: 0.3
+  duplicate_check: true
+score_weights:
+  规范性: 0.15
+  完整性: 0.15
+  准确性: 0.2
+  一致性: 0.15
+  安全性: 0.15
+  干净性: 0.1
+  多样性: 0.05
+  模型适配性: 0.05
+steps:
+- id: text_dataset_eval
+  operator: text_dataset_eval
+  params: {}

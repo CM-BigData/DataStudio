@@ -1,0 +1,32 @@
+---
+workflow:
+  id: structured_synthesis_v1
+  name: 结构化数据合成流程
+  mode: pipeline
+  batch_size: 8
+  concurrency: 1
+  checkpoint: true
+  retry_limit: 1
+input:
+  type: seed_yaml
+  path: example_data/structured/structured_schema.yaml
+output:
+  type: jsonl
+  path: runs/structured_synthesis
+  report_path: runs/structured_synthesis/report.md
+steps:
+- id: structured_synthesis
+  operator: structured_synthesis
+  params:
+    stages:
+      structured_distribution_analyze: {}
+      structured_record_synthesis: {}
+      structured_schema_validate: {}
+      structured_consistency_validate: {}
+      diversity_score: {}
+      safety_filter:
+        banned_words:
+        - secret
+      quality_gate:
+        pass_score: 0.7
+        retry_limit: 1

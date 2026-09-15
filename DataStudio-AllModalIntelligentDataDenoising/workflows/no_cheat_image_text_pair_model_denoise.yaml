@@ -1,0 +1,73 @@
+{
+  "workflow": {
+    "id": "no_cheat_image_text_pair_model_denoise_v1",
+    "name": "no-cheat blind image-text pair model validation",
+    "mode": "pipeline",
+    "batch_size": 4,
+    "checkpoint": false
+  },
+  "input": {
+    "type": "jsonl",
+    "path": "../data/external_task1_pair_model_validation/input.jsonl"
+  },
+  "output": {
+    "run_dir": "../runs/no_cheat_image_text_pair_model_validation",
+    "clean_path": "clean.jsonl",
+    "dropped_path": "dropped.jsonl",
+    "review_path": "review.jsonl",
+    "report_path": "report.md"
+  },
+  "steps": [
+    {
+      "id": "image_text_pair_denoise",
+      "operator": "image_text_pair_denoise",
+      "params": {
+        "profile": "default",
+        "thresholds": {
+          "min_ocr_consistency": 0.08,
+          "min_clip_similarity": 0.28,
+          "min_vlm_consistency": 0.28,
+          "keep_score": 0.75,
+          "review_score": 0.55,
+          "hard_fail_issues": [
+            "data_leakage_suspected",
+            "pair_missing_image",
+            "pair_missing_text",
+            "clip_mismatch",
+            "vlm_contradiction",
+            "ocr_key_field_conflict"
+          ]
+        },
+        "model_ref": {
+          "ocr": {
+            "api_key_env": "OCR_API_KEY",
+            "api_base_env": "OCR_API_BASE",
+            "model_env": "OCR_MODEL",
+            "path_env": "OCR_CHAT_COMPLETIONS_PATH",
+            "timeout": 45,
+            "temperature": 0,
+            "max_tokens": 500
+          },
+          "clip": {
+            "api_key_env": "CLIP_API_KEY",
+            "api_base_env": "CLIP_API_BASE",
+            "model_env": "CLIP_MODEL",
+            "path_env": "CLIP_CHAT_COMPLETIONS_PATH",
+            "timeout": 45,
+            "temperature": 0,
+            "max_tokens": 500
+          },
+          "vlm": {
+            "api_key_env": "VLM_API_KEY",
+            "api_base_env": "VLM_API_BASE",
+            "model_env": "VLM_MODEL",
+            "path_env": "VLM_CHAT_COMPLETIONS_PATH",
+            "timeout": 45,
+            "temperature": 0,
+            "max_tokens": 500
+          }
+        }
+      }
+    }
+  ]
+}

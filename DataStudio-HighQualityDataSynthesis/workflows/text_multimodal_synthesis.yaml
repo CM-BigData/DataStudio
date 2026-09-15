@@ -1,0 +1,47 @@
+---
+workflow:
+  id: text_multimodal_synthesis_v1
+  name: 图文多模态合成流程
+  mode: pipeline
+  batch_size: 3
+  concurrency: 1
+  checkpoint: true
+  retry_limit: 1
+input:
+  type: seed_yaml
+  path: example_data/multimodal/multimodal_real_samples.yaml
+output:
+  type: jsonl
+  path: runs/text_multimodal_synthesis
+  report_path: runs/text_multimodal_synthesis/report.md
+steps:
+- id: multimodal_synthesis
+  operator: multimodal_synthesis
+  params:
+    stages:
+      multimodal_synthesis:
+        input_key: text
+        output_key: multimodal_items
+        stage_call_options:
+          image_understanding:
+            temperature: 0.1
+            max_tokens: 220
+          instruction_extraction:
+            temperature: 0.0
+            max_tokens: 220
+            response_format:
+              type: json_object
+          response_generation:
+            temperature: 0.2
+            max_tokens: 260
+        model_config:
+          provider: openai
+          model: gpt-5.5
+          api_base_env: LLM_API_BASE
+          api_key_env: LLM_API_KEY
+          timeout_seconds: 60
+          max_retries: 1
+          temperature: 0.1
+          max_tokens: 260
+      quality_gate:
+        pass_score: 0.5

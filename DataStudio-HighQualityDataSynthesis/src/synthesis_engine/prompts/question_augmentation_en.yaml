@@ -1,0 +1,3 @@
+user: |
+  Create {{ count }} augmented variants of the question below. Do not decompose it into reasoning sub-questions. Keep the answer intent unchanged and preserve the source language. Include paraphrases, search-query style wording, and context-enriched variants. Return JSON only as [{"question": "...", "augmentation_type": "rewrite|search_query|context_variant"}].
+  Question: {{ question }}

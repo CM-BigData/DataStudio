@@ -1,0 +1,6 @@
+{"id": "mac_router_label", "payload": {"text": "Router label: WAN MAC 00:1A:2B:3C:4D:5E, please mask before sharing screenshots."}, "modality": "text"}
+{"id": "mac_switch_inventory", "payload": {"text": "Switch inventory record uses MAC 00-1A-2B-3C-4D-5E for the uplink port sticker."}, "modality": "text"}
+{"id": "normal_device_description", "payload": {"text": "The device supports dual-band Wi-Fi 6, two LAN ports, and Bluetooth pairing for setup."}, "modality": "text"}
+{"id": "hex_noise_string", "payload": {"text": "Debug hash 001A2B3C4D5E was copied from a firmware checksum field and is not a MAC address."}, "modality": "text"}
+{"id": "mixed_separator_noise", "payload": {"text": "Malformed value 00:1A-2B:3C-4D:5E should stay unchanged because the separators are inconsistent."}, "modality": "text"}
+{"id": "ipv6_like_noise", "payload": {"text": "IPv6 sample fe80::1a2b:3c4d:5e6f:7080 must not be treated as a MAC address."}, "modality": "text"}

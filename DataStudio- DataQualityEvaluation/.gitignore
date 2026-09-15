@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+
+.pytest_cache/
+.pytest_tmp/
+test_runs/
+
+.venv/
+venv/
+.env
+
+outputs/
+reports/*
+!reports/.gitkeep
+real_outputs/
+real_reports/
+
+# Downloaded public datasets. Keep scripts/workflows/docs, but avoid committing external data files.
+real_data/
+!real_data/
+real_data/*
+!real_data/image_aigc_eval_sample/
+!real_data/image_aigc_eval_sample/**
+!real_data/text_punctuation_pairing_sample/
+!real_data/text_punctuation_pairing_sample/**
+
+# Optional local run folders.
+runs/

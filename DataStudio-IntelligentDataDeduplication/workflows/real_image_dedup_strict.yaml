@@ -1,0 +1,37 @@
+workflow:
+  id: real_image_dedup_strict_v1
+  name: Real image deduplication workflow
+  modality: image
+  mode: pipeline
+  checkpoint: true
+input:
+  type: jsonl
+  path: ./data/real_image_dedup/input.jsonl
+output:
+  run_dir: ./runs/real_image_strict
+  kept_path: kept.jsonl
+  removed_path: removed.jsonl
+  review_path: review.jsonl
+  duplicate_groups_path: duplicate_groups.jsonl
+  metrics_path: metrics.json
+  operator_log_path: operator_logs.jsonl
+  report_path: report.md
+steps:
+- id: image_dedup
+  operator: image_dedup
+  params:
+    profile: strict
+    methods:
+      file_hash: true
+      phash:
+        hash_size: 8
+        max_hamming_distance: 4
+      ssim:
+        threshold: 0.9
+        max_side: 64
+      embedding: false
+      region_similarity: false
+    thresholds:
+      cluster_min_score: 0.85
+    model_ref:
+      embedding: IMAGE_EMBEDDING_*

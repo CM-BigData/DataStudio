@@ -1,0 +1,3 @@
+user: |
+  Decompose the complex question into 2 to 6 necessary sub-questions. Do not add unrelated facts. Output only numbered sub-questions.
+  Question: {{ question }}

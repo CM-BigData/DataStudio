@@ -1,0 +1,13 @@
+[
+  {
+    "dataset": "Manual minimal real-text subset",
+    "sources": [
+      "https://en.wikipedia.org/wiki/MAC_address",
+      "https://en.wikipedia.org/wiki/Hexadecimal",
+      "https://en.wikipedia.org/wiki/IPv6_address",
+      "https://www.bluetooth.com/learn-about-bluetooth/"
+    ],
+    "selection_method": "Build 6 minimal reproducible text samples from public technical documentation patterns and realistic device-support wording.",
+    "usage_reason": "Cover true MAC-address text, ordinary device description text, and likely false-positive hexadecimal noise."
+  }
+]

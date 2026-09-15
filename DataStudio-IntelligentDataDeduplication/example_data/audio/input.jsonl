@@ -1,0 +1,12 @@
+{"id": "aud_001", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_001.wav"}}
+{"id": "aud_001_copy", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_001_copy.wav"}, "meta": {"variant": "exact_copy"}}
+{"id": "aud_001_quiet", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_001_quiet.wav"}, "meta": {"variant": "volume_adjusted"}}
+{"id": "aud_002", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_002.wav"}}
+{"id": "aud_002_copy", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_002_copy.wav"}, "meta": {"variant": "exact_copy"}}
+{"id": "aud_002_quiet", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_002_quiet.wav"}, "meta": {"variant": "volume_adjusted"}}
+{"id": "aud_003", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_003.wav"}}
+{"id": "aud_003_copy", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_003_copy.wav"}, "meta": {"variant": "exact_copy"}}
+{"id": "aud_003_quiet", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_003_quiet.wav"}, "meta": {"variant": "volume_adjusted"}}
+{"id": "aud_004", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_004.wav"}}
+{"id": "aud_004_copy", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_004_copy.wav"}, "meta": {"variant": "exact_copy"}}
+{"id": "aud_004_quiet", "modality": "audio", "payload": {"audio_path": "example_data/audio/audio/libri_004_quiet.wav"}, "meta": {"variant": "volume_adjusted"}}

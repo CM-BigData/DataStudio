@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dedup Input Item",
+  "type": "object",
+  "required": ["id", "modality", "payload"],
+  "properties": {
+    "id": { "type": "string" },
+    "modality": { "type": "string", "enum": ["text", "image", "audio"] },
+    "payload": { "type": "object" },
+    "meta": { "type": "object" }
+  }
+}

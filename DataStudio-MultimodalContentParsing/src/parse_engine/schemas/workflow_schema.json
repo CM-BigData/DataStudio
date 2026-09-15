@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "required": ["workflow", "input", "output", "steps"],
+  "properties": {
+    "workflow": {"type": "object"},
+    "input": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["auto", "file_dir", "directory", "file", "jsonl", "json", "csv", "stdin", "raw_text"]
+        },
+        "path": {"type": "string"},
+        "text": {"type": "string"},
+        "id_field": {"type": "string"},
+        "modality_field": {"type": "string"},
+        "path_field": {"type": "string"},
+        "text_field": {"type": "string"}
+      }
+    },
+    "output": {"type": "object"},
+    "custom_operators": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "steps": {"type": "array"}
+  }
+}

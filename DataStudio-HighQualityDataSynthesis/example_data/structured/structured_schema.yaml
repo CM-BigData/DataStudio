@@ -1,0 +1,45 @@
+items:
+- id: record_dataset_source
+  task_type: structured
+  prompt: Generate one dataset source registry record.
+  payload:
+    schema:
+    - name: source_id
+      type: string
+      prefix: src
+    - name: license
+      type: string
+      choices:
+      - MIT
+      - CC BY 4.0
+      - Public Domain
+    - name: redistributable
+      type: boolean
+    - name: sample_count
+      type: integer
+      start: 10
+- id: record_quality_issue
+  task_type: structured
+  prompt: Generate one quality issue record.
+  payload:
+    schema:
+    - name: issue_id
+      type: string
+      prefix: issue
+    - name: modality
+      type: string
+      choices:
+      - text
+      - image
+      - audio
+      - video
+    - name: severity
+      type: string
+      choices:
+      - low
+      - medium
+      - high
+    - name: score
+      type: float
+      start: 0.7
+      max: 1.0

@@ -1,0 +1,40 @@
+---
+workflow:
+  id: image_text_consistency_eval_v1
+  name: 图文关联性质量评测
+  mode: pipeline
+  task_type: image
+  batch_size: 16
+  concurrency: 1
+  checkpoint: true
+runtime:
+  executor: thread
+  workers: 1
+  batch_size: 16
+  retry_times: 0
+input:
+  type: jsonl
+  path: "./example_data/image_text_consistency.jsonl"
+output:
+  result_path: "./outputs/image_text_consistency_result.jsonl"
+  summary_path: "./outputs/image_text_consistency_summary.json"
+  report_path: "./outputs/image_text_consistency_report.md"
+rules:
+  image_text_consistency_threshold: 0.24
+score_weights:
+  规范性: 0.15
+  完整性: 0.15
+  准确性: 0.2
+  一致性: 0.15
+  安全性: 0.15
+  干净性: 0.1
+  多样性: 0.05
+  模型适配性: 0.05
+steps:
+- id: image_dataset_eval
+  operator: image_dataset_eval
+  params:
+    enabled_checks:
+    - decode
+    - image_text_consistency
+    - score

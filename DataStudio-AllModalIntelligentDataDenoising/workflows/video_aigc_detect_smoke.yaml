@@ -1,0 +1,84 @@
+{
+  "workflow": {
+    "id": "video_aigc_detect_smoke_v1",
+    "name": "video_aigc_detect_smoke_v1",
+    "mode": "pipeline",
+    "batch_size": 8,
+    "concurrency": 1,
+    "checkpoint": false
+  },
+  "input": {
+    "type": "jsonl",
+    "path": "../tests/fixtures/video_aigc_real_samples/input.jsonl"
+  },
+  "output": {
+    "run_dir": "../outputs/video_aigc_detect_smoke",
+    "clean_path": "clean.jsonl",
+    "dropped_path": "dropped.jsonl",
+    "review_path": "review.jsonl",
+    "report_path": "report.md"
+  },
+  "steps": [
+    {
+      "id": "video_denoise",
+      "operator": "video_denoise",
+      "params": {
+        "profile": "default",
+        "thresholds": {
+          "min_bytes": 1024,
+          "min_duration": 1.0,
+          "min_width": 160,
+          "min_height": 120,
+          "min_fps": 10.0,
+          "timeout": 60,
+          "sample_fps": 1.0,
+          "max_frames": 4,
+          "max_vlm_frames": 2,
+          "max_warning_red_ratio": 0.12,
+          "max_ocr_frames": 2,
+          "detector_backend": "fallback",
+          "video_aigc_threshold": 0.45,
+          "freeze_frame_risk_threshold": 0.9,
+          "max_repeated_visual_keywords": 3,
+          "keep_score": 0.0,
+          "review_score": 0.0,
+          "hard_fail_issues": [
+
+          ],
+          "review_issues": [
+            "suspected_video_aigc"
+          ]
+        },
+        "model_ref": {
+          "vlm": {
+            "api_key_env": "VLM_API_KEY",
+            "api_base_env": "VLM_API_BASE",
+            "model_env": "VLM_MODEL",
+            "path_env": "VLM_CHAT_COMPLETIONS_PATH",
+            "timeout": 60,
+            "temperature": 0,
+            "max_tokens": 800
+          },
+          "ocr": {
+            "api_key_env": "OCR_API_KEY",
+            "api_base_env": "OCR_API_BASE",
+            "model_env": "OCR_MODEL",
+            "path_env": "OCR_CHAT_COMPLETIONS_PATH",
+            "timeout": 60,
+            "temperature": 0,
+            "max_tokens": 800
+          },
+          "asr": {
+            "api_key_env": "ASR_API_KEY",
+            "api_base_env": "ASR_API_BASE",
+            "model_env": "ASR_MODEL",
+            "path_env": "ASR_TRANSCRIPTIONS_PATH",
+            "timeout": 60,
+            "temperature": 0,
+            "max_tokens": 800
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "real_photo_cat",
+    "image_path": "real_photo_cat.jpg",
+    "label": "cat",
+    "source_dataset": "Oxford-IIIT Pet",
+    "source_type": "real_photo",
+    "source_url": "https://www.robots.ox.ac.uk/~vgg/data/pets/",
+    "selection_reason": "复用项目现有真实公开猫照片，作为真实摄影图基线。"
+  },
+  {
+    "id": "real_photo_cat_resized",
+    "image_path": "real_photo_cat_resized.jpg",
+    "label": "cat",
+    "source_dataset": "Oxford-IIIT Pet",
+    "source_type": "real_photo_resized",
+    "source_url": "https://www.robots.ox.ac.uk/~vgg/data/pets/",
+    "selection_reason": "复用开放许可数据集猫照片的缩放版本，补一个不同尺寸的真实摄影图。"
+  },
+  {
+    "id": "illustration_logo",
+    "image_path": "illustration_logo.jpg",
+    "label": "posterized_cat",
+    "source_dataset": "Oxford-IIIT Pet",
+    "source_type": "open_dataset_derived_style_variant",
+    "source_url": "https://www.robots.ox.ac.uk/~vgg/data/pets/",
+    "selection_reason": "对开放许可数据集猫照片做 posterize 和色彩增强，作为插画风格弱标签样本。"
+  },
+  {
+    "id": "scanned_page",
+    "image_path": "scanned_page.jpg",
+    "label": "edge_cat",
+    "source_dataset": "Oxford-IIIT Pet",
+    "source_type": "open_dataset_derived_edge_variant",
+    "source_url": "https://www.robots.ox.ac.uk/~vgg/data/pets/",
+    "selection_reason": "对开放许可数据集猫照片做边缘提取，验证非自然摄影风格样本也能输出独立 AIGC 指标。"
+  },
+  {
+    "id": "suspected_aigc_weak",
+    "image_path": "suspected_aigc_weak.jpg",
+    "label": "portrait_weak_label",
+    "source_dataset": "Oxford-IIIT Pet",
+    "source_type": "open_dataset_derived_weak_label",
+    "source_url": "https://www.robots.ox.ac.uk/~vgg/data/pets/",
+    "selection_reason": "对开放许可数据集猫照片做裁剪、平滑和色彩增强，作为弱标签“疑似 AIGC 风格图”最小复现输入，仅用于跑通真实链路，不代表严格真值。"
+  }
+]

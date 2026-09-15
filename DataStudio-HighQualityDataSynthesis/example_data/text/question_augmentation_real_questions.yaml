@@ -1,0 +1,27 @@
+items:
+- id: question_squad_001
+  task_type: text
+  prompt: Augment this reading-comprehension question.
+  payload:
+    question: In what country is Normandy located?
+- id: question_squad_002
+  task_type: text
+  prompt: Augment this reading-comprehension question.
+  payload:
+    question: What phrase describes the rabbit-hole in Alice in Wonderland?
+- id: question_support_001
+  task_type: text
+  prompt: Augment this support question.
+  payload:
+    question: How can I reset my account password if I no longer have access to my
+      email?
+- id: question_data_001
+  task_type: text
+  prompt: Augment this dataset governance question.
+  payload:
+    question: How should I record source licenses for example data?
+- id: question_python_001
+  task_type: text
+  prompt: Augment this technical question.
+  payload:
+    question: How do I read a CSV file with headers in Python?

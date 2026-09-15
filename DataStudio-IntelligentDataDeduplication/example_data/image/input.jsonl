@@ -1,0 +1,15 @@
+{"id": "img_001", "modality": "image", "payload": {"image_path": "example_data/image/images/dinosaur.jpg"}}
+{"id": "img_001_copy", "modality": "image", "payload": {"image_path": "example_data/image/images/dinosaur_copy.jpg"}, "meta": {"variant": "exact_copy"}}
+{"id": "img_001_small", "modality": "image", "payload": {"image_path": "example_data/image/images/dinosaur_small.jpg"}, "meta": {"variant": "scaled"}}
+{"id": "img_002", "modality": "image", "payload": {"image_path": "example_data/image/images/hopper.jpg"}}
+{"id": "img_002_copy", "modality": "image", "payload": {"image_path": "example_data/image/images/hopper_copy.jpg"}, "meta": {"variant": "exact_copy"}}
+{"id": "img_002_small", "modality": "image", "payload": {"image_path": "example_data/image/images/hopper_small.jpg"}, "meta": {"variant": "scaled"}}
+{"id": "img_003", "modality": "image", "payload": {"image_path": "example_data/image/images/dog.jpg"}}
+{"id": "img_003_copy", "modality": "image", "payload": {"image_path": "example_data/image/images/dog_copy.jpg"}, "meta": {"variant": "exact_copy"}}
+{"id": "img_003_small", "modality": "image", "payload": {"image_path": "example_data/image/images/dog_small.jpg"}, "meta": {"variant": "scaled"}}
+{"id": "img_004", "modality": "image", "payload": {"image_path": "example_data/image/images/docx_png.jpg"}}
+{"id": "img_004_copy", "modality": "image", "payload": {"image_path": "example_data/image/images/docx_png_copy.jpg"}, "meta": {"variant": "exact_copy"}}
+{"id": "img_004_small", "modality": "image", "payload": {"image_path": "example_data/image/images/docx_png_small.jpg"}, "meta": {"variant": "scaled"}}
+{"id": "img_005", "modality": "image", "payload": {"image_path": "example_data/image/images/docx_jpg.jpg"}}
+{"id": "img_005_copy", "modality": "image", "payload": {"image_path": "example_data/image/images/docx_jpg_copy.jpg"}, "meta": {"variant": "exact_copy"}}
+{"id": "img_005_small", "modality": "image", "payload": {"image_path": "example_data/image/images/docx_jpg_small.jpg"}, "meta": {"variant": "scaled"}}

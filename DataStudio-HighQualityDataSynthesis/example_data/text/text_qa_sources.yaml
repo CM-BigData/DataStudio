@@ -1,0 +1,17 @@
+items:
+- id: qa_gutenberg_alice_001
+  task_type: text
+  prompt: Build QA pairs from a public-domain excerpt.
+  payload:
+    content: Alice was beginning to get very tired of sitting by her sister on the
+      bank.
+- id: qa_gutenberg_pride_001
+  task_type: text
+  prompt: Build QA pairs from a public-domain excerpt.
+  payload:
+    content: Mr. Bennet was among the earliest of those who waited on Mr. Bingley.
+- id: qa_squad_seed_001
+  task_type: text
+  prompt: Build QA pairs from a reading-comprehension source sentence.
+  payload:
+    content: Normandy is a region in the north-west of France.

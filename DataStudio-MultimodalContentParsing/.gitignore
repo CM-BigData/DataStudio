@@ -1,0 +1,31 @@
+# Python caches and build outputs
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+
+# Local environments
+.venv/
+venv/
+env/
+
+# Runtime outputs
+runs/
+
+# External public dataset copies and downloads
+data/external_raw/
+data/external_validation/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Local/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

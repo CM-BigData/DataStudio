@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=83.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "synthesis-workflow-engine"
+version = "0.1.0"
+description = "Lightweight workflow engine for high quality data synthesis."
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "click>=8.1",
+  "openai==2.53.0",
+  "PyYAML>=6.0",
+  "Pillow>=12.3.0",
+  "tenacity>=9.1.4",
+  "httpx[socks]>=0.28.1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+synthesis = "synthesis_engine.cli.main:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["synthesis_engine*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

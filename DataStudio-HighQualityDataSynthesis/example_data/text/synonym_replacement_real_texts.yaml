@@ -1,0 +1,43 @@
+items:
+- id: syn_001
+  task_type: text
+  prompt: Rewrite the sentence with safe synonym replacements.
+  payload:
+    content: Alice was beginning to get very tired of sitting by her sister on the
+      bank.
+- id: syn_002
+  task_type: text
+  prompt: Rewrite the sentence with safe synonym replacements.
+  payload:
+    content: The rabbit-hole went straight on like a tunnel for some way.
+- id: syn_003
+  task_type: text
+  prompt: Rewrite the sentence with safe synonym replacements.
+  payload:
+    content: There was nothing so very remarkable in that; nor did Alice think it
+      so very much out of the way.
+- id: syn_004
+  task_type: text
+  prompt: Rewrite the sentence with safe synonym replacements.
+  payload:
+    content: Mr. Bennet was among the earliest of those who waited on Mr. Bingley.
+- id: syn_005
+  task_type: text
+  prompt: Rewrite the sentence with safe synonym replacements.
+  payload:
+    content: Elizabeth listened in silence, but was not convinced.
+- id: syn_006
+  task_type: text
+  prompt: Rewrite the sentence with safe synonym replacements.
+  payload:
+    content: The village of Longbourn was only one mile from Meryton.
+- id: syn_007
+  task_type: text
+  prompt: Rewrite the sentence with safe synonym replacements.
+  payload:
+    content: Python supports modules that can be reused by other programs.
+- id: syn_008
+  task_type: text
+  prompt: Rewrite the sentence with safe synonym replacements.
+  payload:
+    content: A dataset source note should preserve license and attribution details.

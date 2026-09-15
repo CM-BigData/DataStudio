@@ -1,0 +1,22 @@
+workflow:
+  id: word_parse_v1
+  name: Word 内容解析流程
+  mode: pipeline
+  batch_size: 8
+  concurrency: 1
+  checkpoint: true
+input:
+  type: file_dir
+  path: example_data/word
+output:
+  type: jsonl
+  path: runs/word_parse
+  report_path: runs/word_parse/report.md
+steps:
+- id: word_parse
+  operator: word_parse
+  params:
+    structure:
+      soffice_command: /Applications/LibreOffice.app/Contents/MacOS/soffice
+    media:
+      soffice_command: /Applications/LibreOffice.app/Contents/MacOS/soffice

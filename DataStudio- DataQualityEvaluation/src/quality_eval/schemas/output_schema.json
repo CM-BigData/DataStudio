@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Quality Eval Sample Result",
+  "type": "object",
+  "required": ["task_id", "sample_id", "modality", "status", "score", "level", "metrics", "issues", "action", "suggestions"],
+  "properties": {
+    "task_id": {"type": "string"},
+    "sample_id": {"type": "string"},
+    "modality": {"enum": ["text", "image"]},
+    "status": {"enum": ["success", "failed"]},
+    "score": {"type": "number", "minimum": 0, "maximum": 100},
+    "level": {"enum": ["Excellent", "Good", "Average", "Poor"]},
+    "metrics": {"type": "object"},
+    "issues": {"type": "array", "items": {"type": "string"}},
+    "action": {"enum": ["keep", "review", "drop", "pending"]},
+    "suggestions": {"type": "array", "items": {"type": "string"}}
+  }
+}

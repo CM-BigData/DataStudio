@@ -1,0 +1,24 @@
+workflow:
+  id: pdf_parse_v1
+  name: PDF 内容解析流程
+  mode: pipeline
+  batch_size: 8
+  concurrency: 1
+  checkpoint: true
+input:
+  type: file_dir
+  path: example_data/pdf
+output:
+  type: jsonl
+  path: runs/pdf_parse
+  report_path: runs/pdf_parse/report.md
+steps:
+- id: pdf_parse
+  operator: pdf_parse
+  params:
+    document_parse:
+      provider: openai_compatible
+      model: gpt-5.5
+      api_key_env: OPENAI_API_KEY
+      api_base_env: OPENAI_BASE_URL
+      max_pages: 32

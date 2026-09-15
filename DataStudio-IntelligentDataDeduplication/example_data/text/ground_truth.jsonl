@@ -1,0 +1,4 @@
+{"group_id": "txt_group_001", "member_ids": ["txt_001", "txt_001_copy", "txt_001_near"], "duplicate_type": "exact_and_near"}
+{"group_id": "txt_group_002", "member_ids": ["txt_002", "txt_002_copy", "txt_002_near"], "duplicate_type": "exact_and_near"}
+{"group_id": "txt_group_003", "member_ids": ["txt_003", "txt_003_copy", "txt_003_near"], "duplicate_type": "exact_and_near"}
+{"group_id": "txt_group_004", "member_ids": ["txt_004", "txt_004_copy", "txt_004_near"], "duplicate_type": "exact_and_near"}

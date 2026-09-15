@@ -1,0 +1,38 @@
+---
+workflow:
+  id: text_question_augmentation_v1
+  name: 问题增强数据合成流程
+  mode: pipeline
+  batch_size: 8
+  concurrency: 1
+  checkpoint: true
+  retry_limit: 0
+input:
+  type: seed_yaml
+  path: example_data/text/question_augmentation_real_questions.yaml
+output:
+  type: jsonl
+  path: runs/text_question_augmentation
+  report_path: runs/text_question_augmentation/report.md
+steps:
+- id: question_augmentation_synthesis
+  operator: question_augmentation_synthesis
+  params:
+    stages:
+      question_augmentation_synthesis:
+        input_key: question
+        output_key: augmented_questions
+        min_variants: 2
+        max_variants: 4
+        language: zh
+        model_config:
+          provider: openai
+          model: openai/gpt-5.5
+          api_base_env: LLM_API_BASE
+          api_key_env: OPENAI_API_KEY
+          timeout_seconds: 120
+          max_retries: 1
+          temperature: 0.2
+          max_tokens: 1000
+      quality_gate:
+        pass_score: 0.5

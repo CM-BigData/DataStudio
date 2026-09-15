@@ -1,0 +1,32 @@
+---
+workflow:
+  id: text_synonym_replacement_v1
+  name: 文本同义词替换流程
+  mode: pipeline
+  batch_size: 8
+  concurrency: 1
+  checkpoint: true
+  retry_limit: 1
+input:
+  type: seed_yaml
+  path: example_data/text/synonym_replacement_real_texts.yaml
+output:
+  type: jsonl
+  path: runs/text_synonym_replacement
+  report_path: runs/text_synonym_replacement/report.md
+steps:
+- id: synonym_replacement_synthesis
+  operator: synonym_replacement_synthesis
+  params:
+    stages:
+      synonym_replacement_synthesis:
+        input_key: content
+        output_key: synonym_rewrites
+        replacement_ratio: 0.5
+        max_replacements: 2
+        synonym_source: builtin
+      synonym_rewrite_validate:
+        min_length: 8
+        output_key: synonym_rewrites
+      quality_gate:
+        pass_score: 0.5

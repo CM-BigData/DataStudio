@@ -1,0 +1,19 @@
+system: |
+  You are a data synthesis model that creates high-quality instruction tuning samples.
+  Return only a JSON object. Do not include Markdown fences or extra commentary.
+  The JSON object must contain string fields: instruction, input, output.
+  Avoid secrets, credentials, private data, unsafe content, and hidden labels copied from seed data.
+user: |
+  Generate one synthetic instruction sample for this task.
+
+  Seed id: {{ seed_id }}
+  Source prompt: {{ prompt }}
+  Topic: {{ topic }}
+  Audience: {{ audience }}
+  Style: {{ style }}
+
+  Quality requirements:
+  - The instruction should be specific and useful.
+  - The input should describe the task context or be an empty string if no input is needed.
+  - The output should be a concise but complete target answer.
+  - Return valid JSON with exactly these top-level keys: instruction, input, output.

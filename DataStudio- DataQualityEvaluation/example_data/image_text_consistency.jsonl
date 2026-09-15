@@ -1,0 +1,4 @@
+{"id": "itc_001", "payload": {"text": "The image shows a cat.", "image_path": "example_data/image_dataset/img_good.jpg"}}
+{"id": "itc_002", "payload": {"text": "The image shows a cropped cat photo.", "image_path": "example_data/image_dataset/img_dinosaur.jpg"}}
+{"id": "itc_003", "payload": {"text": "The image shows a spreadsheet.", "image_path": "example_data/image_dataset/img_good.jpg"}}
+{"id": "itc_004", "payload": {"text": "The image is blank white.", "image_path": "example_data/image_dataset/img_blank.jpg"}}

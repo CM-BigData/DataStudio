@@ -1,0 +1,5 @@
+executor: multiprocessing
+workers: 8
+batch_size: 256
+checkpoint: true
+device: cpu

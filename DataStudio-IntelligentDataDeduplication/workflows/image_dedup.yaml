@@ -1,0 +1,30 @@
+workflow:
+  id: image_dedup_demo
+  name: Image deduplication demo
+  modality: image
+  mode: pipeline
+  checkpoint: true
+input:
+  type: jsonl
+  path: ./example_data/image/input.jsonl
+output:
+  run_dir: ./runs/image_demo
+  kept_path: kept.jsonl
+  removed_path: removed.jsonl
+  review_path: review.jsonl
+  duplicate_groups_path: duplicate_groups.jsonl
+  metrics_path: metrics.json
+  operator_log_path: operator_logs.jsonl
+  report_path: report.md
+steps:
+- id: image_dedup
+  operator: image_dedup
+  params:
+    profile: basic
+    methods:
+      file_hash: true
+      phash:
+        hash_size: 8
+        max_hamming_distance: 4
+    thresholds:
+      cluster_min_score: 0.9

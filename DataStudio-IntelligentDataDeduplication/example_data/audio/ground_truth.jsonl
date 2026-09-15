@@ -1,0 +1,4 @@
+{"group_id": "aud_group_001", "member_ids": ["aud_001", "aud_001_copy", "aud_001_quiet"], "duplicate_type": "exact_and_volume_adjusted"}
+{"group_id": "aud_group_002", "member_ids": ["aud_002", "aud_002_copy", "aud_002_quiet"], "duplicate_type": "exact_and_volume_adjusted"}
+{"group_id": "aud_group_003", "member_ids": ["aud_003", "aud_003_copy", "aud_003_quiet"], "duplicate_type": "exact_and_volume_adjusted"}
+{"group_id": "aud_group_004", "member_ids": ["aud_004", "aud_004_copy", "aud_004_quiet"], "duplicate_type": "exact_and_volume_adjusted"}

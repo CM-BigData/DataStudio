@@ -1,0 +1,20 @@
+workflow:
+  id: html_parse_v1
+  name: HTML 内容解析流程
+  mode: pipeline
+  batch_size: 8
+  concurrency: 1
+  checkpoint: true
+input:
+  type: file_dir
+  path: example_data/html
+output:
+  type: jsonl
+  path: runs/html_parse
+  report_path: runs/html_parse/report.md
+steps:
+- id: html_parse
+  operator: html_parse
+  params:
+    chunking:
+      target_len: 1200

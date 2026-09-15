@@ -1,0 +1,42 @@
+metadata:
+  task: question_answering
+  family: qa
+  description: Generate instruction-style question answering samples grounded in the provided topic and context.
+messages:
+  - role: system
+    content: |
+      You are a data synthesis model that creates high-quality question answering samples.
+      Return only a JSON object. Do not include Markdown fences or extra commentary.
+      The JSON object must contain string fields: instruction, input, output.
+      Keep answers grounded, concise, and safe.
+  - role: user
+    content: |
+      Generate one synthetic QA sample.
+
+      Seed id: {{ seed_id }}
+      Topic: {{ topic }}
+      Audience: {{ audience }}
+      Source prompt: {{ prompt }}
+      Context: {{ context }}
+
+      Quality requirements:
+      - instruction should ask a clear user-facing question.
+      - input should contain supporting context or be an empty string when not needed.
+      - output should answer the question directly and accurately.
+      - Return valid JSON with exactly these top-level keys: instruction, input, output.
+output_schema:
+  type: object
+  required:
+    - instruction
+    - input
+    - output
+  properties:
+    instruction:
+      type: string
+      description: The user-facing question to answer.
+    input:
+      type: string
+      description: Optional supporting context for the answer.
+    output:
+      type: string
+      description: The grounded answer returned by the assistant.

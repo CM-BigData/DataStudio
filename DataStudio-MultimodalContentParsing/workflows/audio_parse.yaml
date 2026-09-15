@@ -1,0 +1,25 @@
+workflow:
+  id: audio_parse_v1
+  name: 音频内容解析流程
+  mode: pipeline
+  batch_size: 8
+  concurrency: 1
+  checkpoint: true
+input:
+  type: file_dir
+  path: example_data/audio
+output:
+  type: jsonl
+  path: runs/audio_parse
+  report_path: runs/audio_parse/report.md
+steps:
+- id: audio_parse
+  operator: audio_parse
+  params:
+    asr:
+      provider: dashscope_qwen_asr
+      enabled: true
+      model: qwen3-asr-flash
+      api_key_env: DASHSCOPE_API_KEY
+      timeout_seconds: 120
+      response_format: verbose_json

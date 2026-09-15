@@ -1,0 +1,41 @@
+workflow:
+  id: text_dedup_parallel_dag_v1
+  name: Text deduplication DAG workflow with parallel independent steps
+  modality: text
+  mode: pipeline
+  checkpoint: true
+runtime:
+  executor: process
+  workers: 2
+  allow_parallel_steps: true
+  checkpoint: true
+  resume: false
+input:
+  type: jsonl
+  path: ./example_data/text/input.jsonl
+output:
+  run_dir: ./runs/text_parallel_dag
+  kept_path: kept.jsonl
+  removed_path: removed.jsonl
+  review_path: review.jsonl
+  duplicate_groups_path: duplicate_groups.jsonl
+  metrics_path: metrics.json
+  operator_log_path: operator_logs.jsonl
+  report_path: report.md
+steps:
+- id: text_dedup
+  operator: text_dedup
+  params:
+    profile: basic
+    methods:
+      exact_hash: true
+      simhash:
+        bit_size: 64
+        ngram: 2
+        max_hamming_distance: 10
+      minhash:
+        shingle_size: 5
+        min_length: 35
+        jaccard_threshold: 0.55
+    thresholds:
+      cluster_min_score: 0.55

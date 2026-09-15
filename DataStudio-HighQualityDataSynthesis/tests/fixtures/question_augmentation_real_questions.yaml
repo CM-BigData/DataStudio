@@ -1,0 +1,89 @@
+items:
+  - id: squad_qa_001
+    task_type: text
+    prompt: 对真实问答问题做问题增强验证
+    payload:
+      question: "What is the name of the vessel that carried the Norman forces across the Channel?"
+      sample_type: qa
+      source_name: SQuAD v1.1 development set
+      source_url: https://rajpurkar.github.io/SQuAD-explorer/
+      expected_min_variants: 2
+      expected_types: ["rewrite", "search_query"]
+      acceptance_note: 真实阅读理解问句应生成改写和搜索式问法，而不是拆成多个推理步骤。
+  - id: squad_qa_002
+    task_type: text
+    prompt: 对真实问答问题做问题增强验证
+    payload:
+      question: "In what country is Normandy located?"
+      sample_type: qa
+      source_name: SQuAD v1.1 development set
+      source_url: https://rajpurkar.github.io/SQuAD-explorer/
+      expected_min_variants: 2
+      expected_types: ["rewrite", "context_variant"]
+      acceptance_note: 简短事实问句应扩展上下文问法，但保持目标答案不变。
+  - id: search_googletrends_001
+    task_type: text
+    prompt: 对搜索式提问做问题增强验证
+    payload:
+      question: "how to renew passport online"
+      sample_type: search_query
+      source_name: Google Trends example search-style query
+      source_url: https://trends.google.com/trends/
+      expected_min_variants: 2
+      expected_types: ["search_query", "context_variant"]
+      acceptance_note: 搜索式短查询应增强为自然问句和上下文限定查询。
+  - id: search_stackoverflow_001
+    task_type: text
+    prompt: 对技术搜索式提问做问题增强验证
+    payload:
+      question: "python read csv file with headers"
+      sample_type: search_query
+      source_name: Stack Overflow documentation-style search query
+      source_url: https://stackoverflow.com/questions/tagged/python
+      expected_min_variants: 2
+      expected_types: ["rewrite", "search_query"]
+      acceptance_note: 技术查询应保留 Python、CSV 和 headers 关键约束。
+  - id: education_khan_001
+    task_type: text
+    prompt: 对教育题目做问题增强验证
+    payload:
+      question: "If a rectangle has a length of 8 cm and a width of 3 cm, what is its area?"
+      sample_type: education
+      source_name: Khan Academy-style arithmetic word problem
+      source_url: https://www.khanacademy.org/math
+      expected_min_variants: 2
+      expected_types: ["rewrite", "context_variant"]
+      acceptance_note: 教育题目应改写题面或补充场景，不应拆成先求长宽再求面积的子问题。
+  - id: education_cn_exam_001
+    task_type: text
+    prompt: 对中文教育题目做问题增强验证
+    payload:
+      question: "一个班有48名学生，其中女生占全班人数的八分之三，女生有多少人？"
+      sample_type: education
+      source_name: 人教版小学数学常见分数应用题型
+      source_url: https://www.pep.com.cn/
+      expected_min_variants: 2
+      expected_types: ["rewrite", "context_variant"]
+      acceptance_note: 中文教育题应生成等价题面变体，保持数字与求解目标。
+  - id: customer_support_001
+    task_type: text
+    prompt: 对客服问题做问题增强验证
+    payload:
+      question: "How can I reset my account password if I no longer have access to my email?"
+      sample_type: customer_support
+      source_name: Common customer-support FAQ pattern
+      source_url: https://support.google.com/accounts/
+      expected_min_variants: 2
+      expected_types: ["rewrite", "context_variant"]
+      acceptance_note: 客服问题应生成不同表达和补充限制条件的问法，保留账号密码重置意图。
+  - id: customer_support_002
+    task_type: text
+    prompt: 对中文客服问题做问题增强验证
+    payload:
+      question: "订单显示已签收但我没有收到货，应该怎么处理？"
+      sample_type: customer_support
+      source_name: 电商售后常见问题
+      source_url: https://help.taobao.com/
+      expected_min_variants: 2
+      expected_types: ["rewrite", "search_query"]
+      acceptance_note: 中文售后问题应增强为多种用户问法，不能拆成物流查询和联系商家的步骤。

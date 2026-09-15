@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "required": ["workflow", "input", "output", "steps"],
+  "properties": {
+    "workflow": {"type": "object"},
+    "input": {
+      "type": "object",
+      "properties": {
+        "type": {"type": "string", "enum": ["auto", "seed_yaml", "jsonl", "json", "csv", "directory", "file", "stdin", "raw_text"]},
+        "path": {"type": "string"},
+        "text": {"type": "string"},
+        "id_field": {"type": "string"},
+        "task_type_field": {"type": "string"},
+        "prompt_field": {"type": "string"}
+      }
+    },
+    "output": {"type": "object"},
+    "custom_operators": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "steps": {"type": "array"}
+  }
+}

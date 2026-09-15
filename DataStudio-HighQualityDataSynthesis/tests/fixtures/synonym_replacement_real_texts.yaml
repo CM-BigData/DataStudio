@@ -1,0 +1,109 @@
+items:
+  - id: news_gov_cn_001
+    task_type: text
+    prompt: 对真实新闻句子做同义词替换验证
+    payload:
+      content: "从数据来看，当前工业生产有所加快，消费比较活跃，价格总体平稳，就业继续向好。"
+      sample_type: news
+      source_name: 中国政府网
+      source_url: https://app.www.gov.cn/govdata/gov/201803/17/421563/article.html
+      expected_min_replacements: 2
+      expected_keywords_preserved: ["工业生产", "价格", "就业"]
+      expect_changed: true
+      acceptance_note: 新闻句子应发生多个普通词替换，但核心经济对象不应丢失。
+  - id: news_gov_cn_002
+    task_type: text
+    prompt: 对真实新闻句子做同义词替换验证
+    payload:
+      content: "新动能的成长有利于推动经济平稳健康运行，也有利于经济结构优化升级。"
+      sample_type: news
+      source_name: 中国政府网
+      source_url: https://app.www.gov.cn/govdata/gov/201803/20/421741/article.html
+      expected_min_replacements: 1
+      expected_keywords_preserved: ["新动能", "经济", "结构"]
+      expect_changed: true
+      acceptance_note: 应替换普通动词和形容词，保留“新动能”“经济结构”等核心语义锚点。
+  - id: qa_alpaca_001
+    task_type: text
+    prompt: 对真实问答句子做同义词替换验证
+    payload:
+      content: "The three primary colors are red, blue, and yellow."
+      sample_type: qa
+      source_name: Stanford Alpaca
+      source_url: local:data/external_validation/external_text_alpaca.yaml#alpaca_000001
+      expected_min_replacements: 1
+      expected_keywords_preserved: ["red", "blue", "yellow"]
+      expect_changed: true
+      acceptance_note: 颜色实体必须保留，只允许替换描述性普通词。
+  - id: qa_alpaca_002
+    task_type: text
+    prompt: 对真实问答句子做同义词替换验证
+    payload:
+      content: "A computer motherboard is the main circuit board in a computer."
+      sample_type: qa
+      source_name: Stanford Alpaca
+      source_url: local:data/external_validation/external_text_alpaca.yaml#alpaca_000016
+      expected_min_replacements: 1
+      expected_keywords_preserved: ["computer", "circuit board"]
+      expect_changed: true
+      acceptance_note: 可替换普通词，但主实体和定义关系不能被破坏。
+  - id: guide_python_001
+    task_type: text
+    prompt: 对真实说明文本做同义词替换验证
+    payload:
+      content: "Python 支持把程序分割为模块，以便在其他 Python 程序中复用。"
+      sample_type: guide
+      source_name: Python 3 中文文档
+      source_url: https://docs.python.org/zh-cn/3/tutorial/appetite.html
+      expected_min_replacements: 1
+      expected_keywords_preserved: ["Python", "程序"]
+      expect_changed: true
+      acceptance_note: 应替换“支持”“模块”等普通术语，但保留 Python 专名和主语义。
+  - id: guide_python_002
+    task_type: text
+    prompt: 对真实说明文本做同义词替换验证
+    payload:
+      content: "编写较长程序时，最好用文本编辑器代替解释器，执行文件中的输入内容。"
+      sample_type: guide
+      source_name: Python 3 中文文档
+      source_url: https://docs.python.org/zh-cn/3/tutorial/modules.html
+      expected_min_replacements: 1
+      expected_keywords_preserved: ["文本编辑器", "解释器"]
+      expect_changed: true
+      acceptance_note: 说明句子至少发生一处替换，工具名保持不变。
+  - id: short_ops_001
+    task_type: text
+    prompt: 对短文本做同义词替换边界验证
+    payload:
+      content: "请发布通知。"
+      sample_type: short_text
+      source_name: 自建短文本边界样例
+      source_url: local:acceptance-short-text-001
+      expected_min_replacements: 1
+      expected_keywords_preserved: ["通知"]
+      expect_changed: true
+      acceptance_note: 极短句也应能完成一次稳定替换。
+  - id: boundary_proper_noun_001
+    task_type: text
+    prompt: 对专有名词边界文本做同义词替换验证
+    payload:
+      content: "Python 3.12 在 2026 年继续支持模块化开发。"
+      sample_type: boundary
+      source_name: 自建边界样例
+      source_url: local:acceptance-boundary-001
+      expected_min_replacements: 1
+      expected_keywords_preserved: ["Python 3.12", "2026"]
+      expect_changed: true
+      acceptance_note: 普通词可以改写，但版本号和年份不能被破坏。
+  - id: boundary_no_hit_001
+    task_type: text
+    prompt: 对无命中边界文本做同义词替换验证
+    payload:
+      content: "GPU RTX4090 CUDA 版本号 12.4。"
+      sample_type: boundary
+      source_name: 自建无命中边界样例
+      source_url: local:acceptance-boundary-002
+      expected_min_replacements: 0
+      expected_keywords_preserved: ["RTX4090", "12.4"]
+      expect_changed: false
+      acceptance_note: 纯专名和数字场景不应发生误替换。

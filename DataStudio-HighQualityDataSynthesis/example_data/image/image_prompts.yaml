@@ -1,0 +1,15 @@
+items:
+- id: image_prompt_dataset_card
+  task_type: image
+  prompt: A clean documentation card showing dataset source, license, and processing
+    notes.
+  payload:
+    title: Dataset Sources
+    subtitle: Source, license, processing
+- id: image_prompt_quality_card
+  task_type: image
+  prompt: A clean diagram card for data quality checks across text, image, audio,
+    and video.
+  payload:
+    title: Quality Checks
+    subtitle: Completeness, duplication, safety

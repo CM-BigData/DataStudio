@@ -1,0 +1,28 @@
+---
+workflow:
+  id: text_qa_synthesis_v1
+  name: 文档 QA 数据合成流程
+  retry_limit: 0
+input:
+  type: seed_yaml
+  path: example_data/text/text_qa_sources.yaml
+output:
+  type: jsonl
+  path: runs/text_qa_synthesis
+steps:
+- id: text_qa_synthesis
+  operator: text_qa_synthesis
+  params:
+    stages:
+      text_qa_synthesis:
+        output_key: qa_pairs
+        input_key: content
+        num_questions: 1
+        retrieval_accessor:
+          type: fake
+          questions:
+          - Who approves release gates?
+          answers:
+            Who approves release gates?: Policy owners approve release gates.
+      quality_gate:
+        pass_score: 0.5

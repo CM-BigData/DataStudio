@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "required": ["id", "task_type", "prompt", "generated", "metrics", "issues", "action", "lineage"],
+  "properties": {
+    "id": {"type": "string"},
+    "task_type": {"type": "string"},
+    "prompt": {"type": "string"},
+    "generated": {"type": "object"},
+    "metrics": {"type": "object"},
+    "issues": {"type": "array"},
+    "action": {"type": "string"},
+    "lineage": {"type": "object"}
+  }
+}

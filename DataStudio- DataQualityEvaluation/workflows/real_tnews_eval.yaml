@@ -1,0 +1,39 @@
+---
+workflow:
+  id: real_tnews_eval_v1
+  name: CLUE TNEWS 真实文本数据质量评测
+  mode: pipeline
+  task_type: text
+  batch_size: 256
+  concurrency: 2
+  checkpoint: true
+runtime:
+  executor: thread
+  workers: 2
+  batch_size: 256
+  retry_times: 0
+input:
+  type: jsonl
+  path: "./example_data/text_dataset.jsonl"
+output:
+  result_path: "./real_outputs/tnews_eval_result.jsonl"
+  summary_path: "./real_outputs/tnews_eval_summary.json"
+  report_path: "./real_reports/tnews_eval_report.md"
+rules:
+  min_text_length: 5
+  max_text_length: 200
+  abnormal_char_ratio: 0.3
+  duplicate_check: true
+score_weights:
+  规范性: 0.15
+  完整性: 0.15
+  准确性: 0.2
+  一致性: 0.15
+  安全性: 0.15
+  干净性: 0.1
+  多样性: 0.05
+  模型适配性: 0.05
+steps:
+- id: text_dataset_eval
+  operator: text_dataset_eval
+  params: {}

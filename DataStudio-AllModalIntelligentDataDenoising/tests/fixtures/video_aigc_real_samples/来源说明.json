@@ -1,0 +1,26 @@
+[
+  {
+    "dataset": "Public real and generated video subset for video AIGC smoke validation",
+    "sources": [
+      "https://www.w3schools.com/html/mov_bbb.mp4",
+      "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+      "https://huggingface.co/datasets/microsoft/AVGen-Bench"
+    ],
+    "selected_files": [
+      "real_mov_bbb.mp4",
+      "real_sintel_trailer.mp4",
+      "aigc_kling_cat_blanket.mp4"
+    ],
+    "selection_method": "Pick 2 small publicly downloadable real/public video clips and 1 directly downloadable generated benchmark video from AVGen-Bench, then store them under project fixtures with only minimal descriptive metadata needed for reproducible workflow validation.",
+    "usage_reason": "Provide a reproducible three-sample subset that covers public real footage, a short public trailer clip, and a clearly model-generated benchmark video for standalone video AIGC detection smoke tests.",
+    "label_basis": {
+      "video_real_mov_bbb_001": "Published public demo video distributed by W3Schools for HTML video examples; treated as non-AIGC reference footage.",
+      "video_real_sintel_trailer_001": "Published public trailer distributed by Blender Foundation; treated as non-AIGC public short clip.",
+      "video_aigc_kling_001": "Downloaded from Microsoft AVGen-Bench under the generated-model directory `Kling_2.6/animals/`; treated as explicit AIGC benchmark output."
+    },
+    "limitations": [
+      "The second real sample is a public animated trailer, so it is a real published short clip rather than natural handheld footage.",
+      "This subset is intentionally tiny and only proves workflow reproducibility plus basic separation between public real clips and one benchmark-generated video, not production-grade AIGC detection accuracy."
+    ]
+  }
+]

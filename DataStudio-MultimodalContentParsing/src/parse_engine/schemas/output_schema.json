@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "required": ["id", "modality", "source", "artifacts", "metrics", "issues", "action"],
+  "properties": {
+    "id": {"type": "string"},
+    "modality": {"type": "string"},
+    "source": {"type": "object"},
+    "artifacts": {"type": "array"},
+    "metrics": {"type": "object"},
+    "issues": {"type": "array"},
+    "action": {"type": "string"}
+  }
+}

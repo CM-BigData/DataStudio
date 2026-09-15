@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dedup Output Item",
+  "type": "object",
+  "required": ["id", "modality", "action"],
+  "properties": {
+    "id": { "type": "string" },
+    "modality": { "type": "string" },
+    "action": { "type": "string", "enum": ["keep", "remove", "review"] },
+    "issues": { "type": "array", "items": { "type": "string" } },
+    "metrics": { "type": "object" }
+  }
+}

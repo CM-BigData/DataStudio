@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Quality Eval Unified Input Item",
+  "type": "object",
+  "required": ["id", "modality", "source", "payload", "meta", "metrics", "issues", "action"],
+  "properties": {
+    "id": {"type": "string"},
+    "modality": {"enum": ["text", "image"]},
+    "source": {"type": "object"},
+    "payload": {"type": "object"},
+    "meta": {"type": "object"},
+    "intermediate": {"type": "object"},
+    "metrics": {"type": "object"},
+    "issues": {"type": "array", "items": {"type": "string"}},
+    "action": {"type": "string"}
+  }
+}

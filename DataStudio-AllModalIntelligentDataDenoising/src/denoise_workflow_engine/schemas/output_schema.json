@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Denoise Output DataItem",
+  "type": "object",
+  "required": ["id", "modality", "payload", "metrics", "issues", "action"],
+  "additionalProperties": true,
+  "properties": {
+    "id": {"type": "string"},
+    "modality": {"type": "string"},
+    "payload": {"type": "object"},
+    "meta": {"type": "object"},
+    "intermediate": {"type": "object"},
+    "metrics": {"type": "object"},
+    "issues": {"type": "array", "items": {"type": "string"}},
+    "operator_trace": {"type": "array", "items": {"type": "object"}},
+    "action": {"type": "string", "enum": ["keep", "drop", "review", "pending"]},
+    "quality_score": {"type": "number"}
+  }
+}

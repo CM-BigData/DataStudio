@@ -1,0 +1,52 @@
+---
+workflow:
+  id: image_synthesis_v1
+  name: 图像数据合成流程
+  mode: pipeline
+  batch_size: 4
+  concurrency: 1
+  checkpoint: true
+  retry_limit: 1
+input:
+  type: seed_yaml
+  path: example_data/image/image_prompts.yaml
+output:
+  type: jsonl
+  path: runs/image_synthesis
+  report_path: runs/image_synthesis/report.md
+steps:
+- id: image_synthesis
+  operator: image_synthesis
+  params:
+    stages:
+      negative_prompt_build:
+        avoid:
+        - blur
+        - watermark
+        - low resolution
+        - unsafe content
+      image_card_synthesis:
+        output_dir: runs/generated_images
+        prompt_template: |
+          Create a high-quality synthetic data illustration.
+          Main prompt: {prompt}
+          Title: {title}
+          Subtitle: {subtitle}
+        model_config:
+          provider: openai
+          model: gpt-image-2.0
+          api_base_env: LLM_API_BASE
+          api_key_env: OPENAI_API_KEY
+          size: 1024x1024
+          timeout_seconds: 120
+          max_retries: 1
+      image_quality_validate:
+        min_width: 256
+        min_height: 256
+      diversity_score: {}
+      safety_filter:
+        banned_words:
+        - secret
+      quality_gate:
+        pass_score: 0.7
+        retry_limit: 1

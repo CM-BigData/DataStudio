@@ -1,0 +1,17 @@
+models:
+  text_generation:
+    provider: openai
+    enabled: true
+    model: gpt-4.1-mini
+    api_base_env: LLM_API_BASE
+    api_key_env: LLM_API_KEY
+    timeout_seconds: 60
+    max_retries: 2
+    temperature: 0.7
+    max_tokens: 1200
+  image_generation:
+    provider: local_card_generator
+    enabled: true
+  llm_validation:
+    provider: openai
+    enabled: false

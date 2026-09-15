@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Quality Eval Workflow Config",
+  "type": "object",
+  "required": ["workflow", "input", "output", "steps"],
+  "properties": {
+    "workflow": {
+      "type": "object",
+      "required": ["id", "task_type"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "mode": {"enum": ["pipeline", "dag"]},
+        "task_type": {"enum": ["text", "image", "audio"]},
+        "batch_size": {"type": "integer", "minimum": 1},
+        "concurrency": {"type": "integer", "minimum": 1},
+        "checkpoint": {"type": "boolean"}
+      }
+    },
+    "input": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["auto", "jsonl", "json", "csv", "image_folder", "directory", "file", "stdin", "raw_text"]
+        },
+        "path": {"type": "string"},
+        "annotation_path": {"type": "string"},
+        "text": {"type": "string"},
+        "id_field": {"type": "string"},
+        "modality_field": {"type": "string"},
+        "text_field": {"type": "string"},
+        "image_path_field": {"type": "string"},
+        "audio_path_field": {"type": "string"},
+        "label_field": {"type": "string"}
+      }
+    },
+    "output": {
+      "type": "object",
+      "required": ["result_path", "summary_path", "report_path"]
+    },
+    "rules": {"type": "object"},
+    "runtime": {"type": "object"},
+    "custom_operators": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["operator"],
+        "properties": {
+          "id": {"type": "string"},
+          "operator": {"type": "string"},
+          "depends_on": {
+            "oneOf": [
+              {"type": "string"},
+              {"type": "array", "items": {"type": "string"}}
+            ]
+          }
+        }
+      }
+    }
+  }
+}

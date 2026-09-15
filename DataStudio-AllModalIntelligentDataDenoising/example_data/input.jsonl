@@ -1,0 +1,27 @@
+{"id": "text_clean_001", "payload": {"text": "This public-domain sentence is clear, grammatical, and suitable for downstream processing."}}
+{"id": "text_mojibake_001", "payload": {"text": "Alice was beginning to get very tired of sitting by her sister on the bank. mojibake Ã¦ÂµÂ‹"}}
+{"id": "text_markup_noise_001", "payload": {"text": "<div>## Chapter note **important**<br>Alice follows the rabbit into the tunnel.</div>"}}
+{"id": "text_repetition_001", "payload": {"text": "rabbit rabbit rabbit rabbit rabbit rabbit rabbit rabbit rabbit rabbit rabbit rabbit rabbit rabbit rabbit"}}
+{"id": "text_low_info_001", "payload": {"text": "................. !!!!!!!!!! ??????"}}
+{"id": "text_sensitive_001", "payload": {"text": "Click this gambling bonus link and claim illegal cashback immediately."}}
+{"id": "text_pii_001", "payload": {"text": "Contact Jane at jane@example.com or 13800138000 for the demo account."}}
+{"id": "image_clean_dog_001", "payload": {"image_path": "example_data/assets/images/image_clean_dog.jpg"}}
+{"id": "image_low_resolution_001", "payload": {"image_path": "example_data/assets/images/image_low_resolution.jpg"}}
+{"id": "image_blur_001", "payload": {"image_path": "example_data/assets/images/image_blur.jpg"}}
+{"id": "image_qrcode_001", "payload": {"image_path": "example_data/assets/images/image_qrcode.jpg"}}
+{"id": "image_watermark_001", "payload": {"image_path": "example_data/assets/images/image_watermark.jpg"}}
+{"id": "image_logo_001", "payload": {"image_path": "example_data/assets/images/image_logo.jpg"}}
+{"id": "image_pure_color_001", "payload": {"image_path": "example_data/assets/images/image_pure_color.jpg"}}
+{"id": "image_safety_marker_001", "payload": {"image_path": "example_data/assets/images/image_safety_marker.jpg"}}
+{"id": "pair_match_001", "payload": {"text": "The image shows a dog standing outdoors.", "image_path": "example_data/assets/images/image_clean_dog.jpg"}}
+{"id": "pair_mismatch_001", "payload": {"text": "The image shows a red car parked beside a road.", "image_path": "example_data/assets/images/image_clean_dog.jpg"}}
+{"id": "pair_ocr_match_001", "payload": {"text": "The image contains a white overlay block.", "image_path": "example_data/assets/images/image_big_text_ocr.jpg"}}
+{"id": "pair_ocr_conflict_001", "payload": {"text": "The image contains contract number ABC-2026.", "image_path": "example_data/assets/images/image_big_text_ocr.jpg"}}
+{"id": "pair_sensitive_caption_001", "payload": {"text": "A normal image caption with gambling cashback spam appended.", "image_path": "example_data/assets/images/image_clean_dog.jpg"}}
+{"id": "video_clean_001", "payload": {"video_path": "example_data/assets/videos/video_clean.mp4"}}
+{"id": "video_lowres_short_001", "payload": {"video_path": "example_data/assets/videos/video_lowres_short.mp4"}}
+{"id": "video_black_001", "payload": {"video_path": "example_data/assets/videos/video_black.mp4"}}
+{"id": "video_freeze_001", "payload": {"video_path": "example_data/assets/videos/video_freeze.mp4"}}
+{"id": "video_silent_001", "payload": {"video_path": "example_data/assets/videos/video_silent.mp4"}}
+{"id": "video_low_volume_001", "payload": {"video_path": "example_data/assets/videos/video_low_volume.mp4"}}
+{"id": "video_qrcode_001", "payload": {"video_path": "example_data/assets/videos/video_qrcode.mp4"}}

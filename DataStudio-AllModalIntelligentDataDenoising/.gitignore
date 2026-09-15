@@ -1,0 +1,13 @@
+config/local_api.env
+.env.local
+.pytest_cache/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+data/
+runs/
+outputs/
+input/input.jsonl
+input/images/
+input/videos/

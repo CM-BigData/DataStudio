@@ -1,0 +1,37 @@
+{
+  "workflow": {
+    "id": "text_mac_address_smoke_v1",
+    "name": "Text MAC Address Sensitive Detection Smoke Workflow",
+    "mode": "pipeline",
+    "batch_size": 16,
+    "concurrency": 1,
+    "checkpoint": true
+  },
+  "input": {
+    "type": "jsonl",
+    "path": "../tests/fixtures/text_mac_address_real_samples/input.jsonl"
+  },
+  "output": {
+    "run_dir": "../outputs/text_mac_address_smoke",
+    "clean_path": "clean.jsonl",
+    "dropped_path": "dropped.jsonl",
+    "review_path": "review.jsonl",
+    "report_path": "report.md"
+  },
+  "steps": [
+    {
+      "id": "text_denoise",
+      "operator": "text_denoise",
+      "params": {
+        "profile": "default",
+        "thresholds": {
+          "keep_score": 0.75,
+          "review_score": 0.55,
+          "hard_fail_issues": [
+            "text_sensitive_masked"
+          ]
+        }
+      }
+    }
+  ]
+}
