@@ -17,7 +17,7 @@ The repository root contains the following toolkit directories:
 | `DataStudio-MultimodalContentParsing/` | `parse` | Parses PDF, Word, Excel, HTML, images, audio, and other content |
 | `DataStudio-IntelligentDataDeduplication/` | `dedup` | Deduplicates text, image, and audio samples |
 | `DataStudio-AllModalIntelligentDataDenoising/` | `denoise` | Cleans and routes text, images, image-text pairs, video, and other data |
-| `DataStudio-DataQualityEvaluation/` | `quality-eval` | Checks the quality of text, image, and audio datasets |
+| `DataStudio-DataQualityEvaluation/` | `quality-eval` | Evaluate the quality of text, image, and audio datasets |
 | `DataStudio-HighQualityDataSynthesis/` | `synthesis` | Runs text, image, structured, and multimodal data synthesis workflows |
 
 ## Core Capabilities
