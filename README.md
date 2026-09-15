@@ -17,7 +17,7 @@ The repository root contains the following toolkit directories:
 | `DataStudio-MultimodalContentParsing/` | `parse` | Parses PDF, Word, Excel, HTML, images, audio, and other content |
 | `DataStudio-IntelligentDataDeduplication/` | `dedup` | Deduplicates text, image, and audio samples |
 | `DataStudio-AllModalIntelligentDataDenoising/` | `denoise` | Cleans and routes text, images, image-text pairs, video, and other data |
-| `DataStudio-NationalStandardDataQualityEvaluation/` | `quality-eval` | Checks the quality of text, image, and audio datasets |
+| `DataStudio-DataQualityEvaluation/` | `quality-eval` | Checks the quality of text, image, and audio datasets |
 | `DataStudio-HighQualityDataSynthesis/` | `synthesis` | Runs text, image, structured, and multimodal data synthesis workflows |
 
 ## Core Capabilities
@@ -34,7 +34,7 @@ The repository root contains the following toolkit directories:
 
 [DataStudio-AllModalIntelligentDataDenoising](DataStudio-AllModalIntelligentDataDenoising/README.md) cleans text, images, image-text pairs, and video, with automatic routing for mixed inputs. Text operations cover normalization, markup cleanup, repetition filtering, and sensitive information masking. Image and video workflows assess decoding, resolution, blur, exposure, noise, and other quality signals; image-text workflows check consistency between modalities. Configurable quality decisions route samples into keep, drop, or manual-review outputs.
 
-### National-Standard Data Quality Evaluation
+### Data Quality Evaluation
 
 [DataStudio-DataQualityEvaluation](DataStudio-DataQualityEvaluation/README.md) evaluates text, image, and audio datasets and reports sample-level issues alongside dataset-level summaries. Checks cover field completeness, text length and punctuation, duplicate content, image integrity and annotations, and audio format, sample rate, clipping, noise, and echo. The toolkit produces quality scores, issue distributions, mappings to national-standard quality dimensions, Markdown reports, operator traces, and error queues to support review and improvement.
 
